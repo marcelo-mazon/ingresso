@@ -3,8 +3,6 @@ let cadeiraSuperior = 200;
 let cadeiraInferior = 400;
 
 function comprar (){
-    const maxIgressoPermitido = 0;
-
     // obtém o tipo de cadeira selecionada
     const cadeiraEscolhida = document.getElementById('tipo-ingresso').value;    
 
@@ -18,7 +16,15 @@ function comprar (){
     }
 
     // valida se há ingressos suficientes para o tipo de cadeira escolhida
+    if ((cadeiraEscolhida == 'inferior' && quantidade > cadeiraInferior) ||
+        (cadeiraEscolhida == 'superior' && quantidade > cadeiraSuperior) ||
+        (cadeiraEscolhida == 'pista' && quantidade > pista))
+    {
+        alert ('A quantidade disponível para esse tipo de ingresso é inferior ao número escolhido!');
+        return;
+    }
 
+    // atualiza
 
 
 }
